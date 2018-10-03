@@ -5,5 +5,6 @@ public class TestFile {
         System.out.println(BChenLib.cutOut("giantcatpoop","cat"));
         System.out.println(BChenLib.sumUpToCombine(5));
         System.out.println(BChenLib.primePrinter(2));
+        BChenLib.fooBarBaz(100);
     }
 }
