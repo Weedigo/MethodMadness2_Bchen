@@ -65,7 +65,7 @@ public class BChenLib {
 
     ////////////////////
     public static int leastCommonMultiple(int num1, int num2, int num3){
-        int max1 =0; int max2 =0; int max3 =0; int zero = 0;
+        int max1 =0; int max2 =0; int max3 =0;
         if(num2>num1 && num1>num3){
             max1= num2;
             max2= num1;
@@ -96,12 +96,81 @@ public class BChenLib {
             max2= num3;
             max3= num1;
         }
-        for(int i=0;i<max1;i++){
-            if((max1%i)==(max2%i)==(max3%i)==(zero))
-                return(i);
+        for(int i=2;i<max1;i++){
+            double rem1 = max1%i;
+            double rem2 = max2%i;
+            double rem3 = max3%i;
+            if(rem1== 0){
+                if(rem2==0){
+                    if(rem3== 0){
+                        return(i);
+                    }
+                }
+            }
         }
-        return(123);
-        answre is on stack OVERFLOWWW
+        return(1);
+    }
+    ///////////////////////
+    public static String vigCipher(String msg, String key){
+        String keymsg = "";
+        String answer = "";
+        for(int i= 0; i<msg.length(); i++){
+            keymsg = keymsg + key.substring(i%key.length());
+        }
+        //keymsg too long
+        for(int k= 1; k<msg.length(); k++){
+            int ascii = Integer.parseInt(keymsg.substring(k));
+            answer = answer + (char)(msg.charAt(k)+ ascii);
+        }
+        return(answer);
+    }
+    ///////////
+    public static int stringUnion(String word1, String word2, String word3){
+        int answer = 0;
+        int all3 = 0;
+        for(int i= 0; i< word1.length(); i++){
+            for(int j= 0; j< word2.length(); j++){
+                for(int k= 0; k< word3.length(); k++){
+                    String letter1 = word1.substring(i);
+                    String letter2 = word1.substring(j);
+                    String letter3 = word1.substring(k);
+                    if(letter1.equals(letter2)) {
+                        if(letter2.equals(letter3)){
+                            all3++;
+                        }
+                    }
+                }
+            }
+        }
+        for(int i=0; i< word1.length(); i++){
+            for(int j=0; j< word2.length(); j++){
+                String letter1 = word1.substring(i);
+                String letter2 = word2.substring(j);
+                if(letter1.equals(letter2)) {
+                    answer++;
+                }
+            }
+        }
+        for(int i=0; i< word2.length(); i++){
+            for(int j=0; j< word3.length(); j++){
+                String letter1 = word1.substring(i);
+                String letter2 = word2.substring(j);
+                if(letter1.equals(letter2)){
+                    answer++;
+                }
+            }
+        }
+        for(int i=0; i< word1.length(); i++){
+            for(int j=0; j< word3.length(); j++){
+                String letter1 = word1.substring(i);
+                String letter2 = word2.substring(j);
+                if(letter1.equals(letter2)) {
+                    answer++;
+                }
+            }
+        }
+        answer = answer - 2*all3;
+        return answer;
     }
 
 }

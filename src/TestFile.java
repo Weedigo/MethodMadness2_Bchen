@@ -7,6 +7,8 @@ public class TestFile {
         BChenLib.fooBarBaz(15);
         BChenLib.primePrinter(7);
         System.out.println(BChenLib.quadSolver(1,-6,187));
-        System.out.println(BChenLib.leastCommonMultiple(3,6,15));
+        System.out.println(BChenLib.leastCommonMultiple(4,6,15));
+        //System.out.println(BChenLib.vigCipher("computer", "ab"));
+        System.out.println(BChenLib.stringUnion("bodje", "jobt", "bote"));
     }
 }
